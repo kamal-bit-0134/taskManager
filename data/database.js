@@ -2,12 +2,12 @@ import mongoose from "mongoose"
 
 
 
-// MONGO_URI = mongodb+srv://admin:admin@cluster0.tmoxttg.mongodb.net/?retryWrites=true&w=majority
+// MONGO_URI = mongodb://127.0.0.1:27017
 
 export const connectDB = ()=>{
     mongoose.connect(process.env.MONGO_URI,{
     dbName:"backendapi",
 })
-.then(()=>console.log("Database Connected"))
+.then((c)=>console.log(`Database Connected with ${c.connection.host}`))
 .catch((error)=>console.log(error))
 }
